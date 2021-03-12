@@ -18,10 +18,12 @@ use App\Models\User;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware('auth:sanctum')->get('/cekuser', function (Request $request) {
+    return $request->user();
+});
 
 
-
-Route::middleware('auth:sanctum')->get('/buatuser', function (Request $request) {
+Route::get('registermanual',function (Request $request) {
     $user = User::create([
         'name' => 'yayan cahyani',
         'email' => 'yayanchy2@gmail.com',

@@ -12,9 +12,10 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  loading: '~/components/loading.vue',
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [{ src: 'spinkit/spinkit.min.css', lang: 'css' }],
 
   // router: {
   //   middleware: ['auth'],
@@ -69,6 +70,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
   ],
+  bootstrapVue: {
+    icons: true,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

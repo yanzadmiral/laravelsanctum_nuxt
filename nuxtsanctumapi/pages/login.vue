@@ -1,8 +1,37 @@
 <template>
   <b-container>
     <b-row>
-      <b-card title="public Home Page">login </b-card>
-      <b-button variant="danger" @click="login">Login</b-button>
+      <b-container fluid>
+        <b-row class="my-3">
+          <b-col sm="3">
+            <label for="input-small">Email</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input
+              v-model="form.email"
+              size="sm"
+              placeholder="Enter your email"
+            ></b-form-input>
+          </b-col>
+        </b-row>
+        <b-row class="my-3">
+          <b-col sm="3">
+            <label for="input-small">Password</label>
+          </b-col>
+          <b-col sm="9">
+            <b-form-input
+              v-model="form.password"
+              size="sm"
+              type="password"
+              placeholder="Enter your password"
+            ></b-form-input>
+          </b-col>
+        </b-row>
+      </b-container>
+      <b-button variant="danger" style="margin-right: 10px" @click="login"
+        >Login</b-button
+      >
+      <b-button variant="danger" @click="fill">Fill</b-button>
     </b-row>
   </b-container>
 </template>
@@ -13,8 +42,8 @@ export default {
   data() {
     return {
       form: {
-        email: 'yayanchy1@gmail.com',
-        password: '12345678',
+        email: '',
+        password: '',
       },
     }
   },
@@ -26,6 +55,10 @@ export default {
         })
         .then((response) => console.log(response))
         .catch((error) => console.log(error))
+    },
+    fill() {
+      this.form.email = 'yayanchy2@gmail.com'
+      this.form.password = '12345678'
     },
   },
 }

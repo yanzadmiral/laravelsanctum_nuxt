@@ -10,20 +10,11 @@
 <script>
 export default {
   methods: {
-    async coba() {
-      await this.$axios
-        .get('http://localhost:8000/api/buatuser')
-        .then(function (response) {
-          // handle success
-          console.log(response)
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error)
-        })
-        .then(function () {
-          // always executed
-        })
+    coba() {
+      this.$nextTick(() => {
+        this.$store.commit('notif/setLoading', true)
+        setTimeout(() => this.$store.commit('notif/setLoading', false), 2000)
+      })
     },
   },
 }
