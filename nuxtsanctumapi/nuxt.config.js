@@ -33,6 +33,7 @@ export default {
   ],
 
   auth: {
+    plugins: ['@plugins/axios.js'], // This ensures that we can set cookies from API
     strategies: {
       laravelSanctum: {
         provider: 'laravel/sanctum',

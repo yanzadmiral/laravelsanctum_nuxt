@@ -2,12 +2,31 @@
   <b-container>
     <b-row>
       <b-card title="public Home Page"> Welcome Home </b-card>
+      <b-button variant="danger" @click="coba">Coba</b-button>
     </b-row>
   </b-container>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    async coba() {
+      await this.$axios
+        .get('http://localhost:8000/api/buatuser')
+        .then(function (response) {
+          // handle success
+          console.log(response)
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error)
+        })
+        .then(function () {
+          // always executed
+        })
+    },
+  },
+}
 </script>
 
 <style>

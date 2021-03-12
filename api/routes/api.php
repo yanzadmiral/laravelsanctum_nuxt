@@ -19,6 +19,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
+Route::middleware('auth:sanctum')->get('/buatuser', function (Request $request) {
+    $user = User::create([
+        'name' => 'yayan cahyani',
+        'email' => 'yayanchy2@gmail.com',
+        'password' => bcrypt('12345678')
+    ]);
+    return $user;
+});
+
+
+
 Route::get('register',function (Request $request)
 {
     $user = User::create([
@@ -38,7 +51,7 @@ Route::post('login', function (Request $request) {
             'email' => 'Invalid credentials'
         ]);
     }
-
+    //$request->user->createToken('token-name', ['server:update'])->plainTextToken;
     $request->session()->regenerate();
 
     return response()->json(null, 201);
